@@ -27,7 +27,7 @@ class ImdbSpider(scrapy.Spider):
 
         """
         This parser method assumes that you are on the Cast & Crew page. 
-        It then parse links data of each actor listed on the page and 
+        It then parse links data of each actor listed on the page and yield a
         request to go to each actor's page. When the actor's page is reached,
         parse_actor_page() method is called.
         Note that this method returns no data.
@@ -48,7 +48,7 @@ class ImdbSpider(scrapy.Spider):
         """
         This parser method assumes that you are on an actor's page. 
         It then parse the actor's name and movies or TV shows that the actor participated in.
-        It returns a dictionary that contains actors' names and corresponding movies.
+        It yields a dictionary that contains actors' names and corresponding movies.
         """
 
         # get the actor's name once we are on the actor's page
@@ -66,10 +66,5 @@ class ImdbSpider(scrapy.Spider):
             "movie_or_TV_name" : movie_or_TV_name
             }
     
-
-
-# what kind of page meant to parse
-# and its effect (navigation and data outputs)
-# comments for how each code chunk operates 
 
 
